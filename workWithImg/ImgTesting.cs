@@ -11,7 +11,7 @@ namespace workWithImg
 
         static void Main(string[] args)
         {
-            Bitmap picture = new Bitmap(@"C:\Users\qwert\Downloads\image.jpg");
+            Bitmap picture = new Bitmap(@"C:\Users\qwert\Downloads\image.jpg"); //your path img 
 
             List<int[]> lis = new List<int[]>();
 
