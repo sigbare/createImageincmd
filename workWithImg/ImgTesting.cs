@@ -34,6 +34,16 @@ namespace workWithImg
             lis.Add(new int[3] { 255, 0, 255 });
             lis.Add(new int[3] { 255, 255, 0 });
 
+            for (int i = 0; i < picture.Height; ++i)
+            {
+
+                for (int j = 0; j < picture.Width; j++)
+                {
+                    ds[i][j] = GetColor(lis, new int[3] { picture.GetPixel(j, i).R, picture.GetPixel(j, i).G, picture.GetPixel(j, i).B });
+
+                }
+
+
 
 
             for (int i = 0; i < picture.Height; i++)
