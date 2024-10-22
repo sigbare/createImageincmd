@@ -13,8 +13,9 @@ namespace workWithImg
         {
             char[] chars = new char[] { 'K', 'u', 'r','w','a','B','o','b','e','r' };
             int count = 0;
-            
-            Bitmap picture = new Bitmap(@"D:\image.jpg"); //your path img 
+            Console.WriteLine("Enter path and format your image like a (D:\\img.jpg)");
+            string path = Console.ReadLine();
+            Bitmap picture = new Bitmap(path); //your path img 
             int[][] ds = new int[picture.Height][];
             for(int i = 0; i < picture.Height; i++)
             {
