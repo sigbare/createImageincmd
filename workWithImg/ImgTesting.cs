@@ -11,8 +11,16 @@ namespace workWithImg
 
         static void Main(string[] args)
         {
-            Bitmap picture = new Bitmap(@"C:\Users\qwert\Downloads\image.jpg"); //your path img 
-
+            char[] chars = new char[] { 'K', 'u', 'r','w','a','B','o','b','e','r' };
+            int count = 0;
+            
+            Bitmap picture = new Bitmap(@"D:\image.jpg"); //your path img 
+            int[][] ds = new int[picture.Height][];
+            for(int i = 0; i < picture.Height; i++)
+            {
+                ds[i] = new int[picture.Width];
+            }
+           
             List<int[]> lis = new List<int[]>();
 
             lis.Add(new int[3] { 0, 0, 0 });
@@ -31,7 +39,18 @@ namespace workWithImg
             lis.Add(new int[3] { 255, 0, 255 });
             lis.Add(new int[3] { 255, 255, 0 });
 
+            for (int i = 0; i < picture.Height; ++i)
+            {
 
+                for (int j = 0; j < picture.Width; j++)
+                {
+                    ds[i][j] = GetColor(lis, new int[3] { picture.GetPixel(j, i).R, picture.GetPixel(j, i).G, picture.GetPixel(j, i).B });
+
+                }
+
+
+
+            }
 
             for (int i = 0; i < picture.Height; i++)
             {
@@ -39,7 +58,7 @@ namespace workWithImg
 
                 for (int j = 0; j < picture.Width; j++)
                 {
-                    int cl  = GetColor(lis, new int[3] { picture.GetPixel(j, i).R, picture.GetPixel(j, i).G, picture.GetPixel(j, i).B });
+                    int cl  = ds[i][j];
                     switch (cl)
                     {
                         case 0:
@@ -76,15 +95,20 @@ namespace workWithImg
                             Console.ForegroundColor = ConsoleColor.White; break;
 
                     }
-                    
-                    Console.Write("@@");
+
+                    Console.Write(chars[count]);
+                    Console.Write(chars[count]);
+                    count++;
+                    if (count == chars.Length)
+                        count = 0;
                     
                 }
 
                 Console.WriteLine();
+
             }
             
-
+            
 
             Console.Write("Testing" + Console.WindowHeight);
             Console.ReadLine();
