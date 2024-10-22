@@ -15,7 +15,12 @@ namespace workWithImg
             int count = 0;
             
             Bitmap picture = new Bitmap(@"D:\image.jpg"); //your path img 
-
+            int[][] ds = new int[picture.Height][];
+            for(int i = 0; i < picture.Height; i++)
+            {
+                ds[i] = new int[picture.Width];
+            }
+           
             List<int[]> lis = new List<int[]>();
 
             lis.Add(new int[3] { 0, 0, 0 });
@@ -45,6 +50,7 @@ namespace workWithImg
 
 
 
+            }
 
             for (int i = 0; i < picture.Height; i++)
             {
@@ -52,7 +58,7 @@ namespace workWithImg
 
                 for (int j = 0; j < picture.Width; j++)
                 {
-                    int cl  = GetColor(lis, new int[3] { picture.GetPixel(j, i).R, picture.GetPixel(j, i).G, picture.GetPixel(j, i).B });
+                    int cl  = ds[i][j];
                     switch (cl)
                     {
                         case 0:
@@ -91,6 +97,7 @@ namespace workWithImg
                     }
 
                     Console.Write(chars[count]);
+                    Console.Write(chars[count]);
                     count++;
                     if (count == chars.Length)
                         count = 0;
@@ -98,9 +105,10 @@ namespace workWithImg
                 }
 
                 Console.WriteLine();
+
             }
             
-
+            
 
             Console.Write("Testing" + Console.WindowHeight);
             Console.ReadLine();
