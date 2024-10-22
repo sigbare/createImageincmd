@@ -11,7 +11,10 @@ namespace workWithImg
 
         static void Main(string[] args)
         {
-            Bitmap picture = new Bitmap(@"C:\Users\qwert\Downloads\image.jpg"); //your path img 
+            char[] chars = new char[] { 'K', 'u', 'r','w','a','B','o','b','e','r' };
+            int count = 0;
+            
+            Bitmap picture = new Bitmap(@"D:\image.jpg"); //your path img 
 
             List<int[]> lis = new List<int[]>();
 
@@ -76,8 +79,11 @@ namespace workWithImg
                             Console.ForegroundColor = ConsoleColor.White; break;
 
                     }
-                    
-                    Console.Write("@@");
+
+                    Console.Write(chars[count]);
+                    count++;
+                    if (count == chars.Length)
+                        count = 0;
                     
                 }
 
